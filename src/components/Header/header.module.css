@@ -1,0 +1,18 @@
+.header__wrapper {
+  grid-area: header;
+  background-color: black;
+}
+.header__container {
+  width: 25%;
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
+}
+
+.header__title {
+  color: #f86600;
+}
+.header_description {
+  color: white;
+  line-height: 1.5rem;
+}
