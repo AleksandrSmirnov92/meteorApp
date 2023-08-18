@@ -11,6 +11,7 @@ export const Leftbar: React.FC = () => {
             width={377}
             height={436}
             layout="responsive"
+            // fill={true}
             className={leftbar.leftbar__image}
           />
         </div>

@@ -1,18 +1,37 @@
 .header__wrapper {
   grid-area: header;
-  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* width: 100%; */
+  /* background-color: wheat; */
 }
 .header__container {
-  width: 25%;
+  position: relative;
   display: flex;
-  padding-left: 10px;
+  padding-left: 1rem;
   flex-direction: column;
+  background-color: black;
+  padding-bottom: 1rem;
 }
 
 .header__title {
   color: #f86600;
+  font-family: "Passion One";
+  font-size: 2em;
 }
 .header_description {
   color: white;
   line-height: 1.5rem;
+  font-size: 1em;
+  font-family: Helvetica;
+}
+@media (max-width: 640px) {
+  .header__wrapper {
+    /* position: sticky;
+    width: 100%;
+    top: 0; */
+  }
 }

@@ -1,12 +1,22 @@
 .leftbar__wrapper {
   grid-area: leftbar;
-  heigth: 100vh;
-  background-color: black;
+  background-color: rgb(224, 217, 217);
+  /* position: fixed; */
+  height: 100vh;
 }
 .leftbar__container {
   color: white;
-
   width: 100%;
 }
 .leftbar__image-wrapper {
+}
+@media (max-width: 640px) {
+  .leftbar__wrapper {
+    position: inherit;
+    display: flex;
+    /* align-items: center; */
+  }
+  .leftbar__image-wrapper {
+    margin-left: -25rem;
+  }
 }

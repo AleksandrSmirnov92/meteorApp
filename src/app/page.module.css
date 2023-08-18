@@ -1,11 +1,18 @@
 .main {
+  position: fixed;
   display: grid;
   grid-template-areas: "leftbar main rightbar";
-  grid-template-columns: 2fr 3fr 2fr;
-  grid-template-rows: 3fr;
+  grid-template-columns: auto 3fr auto;
+  grid-template-rows: 1fr;
   padding: 0;
   height: 100vh;
-  /* background-color: black; */
-  /* display: flex;
-  flex-direction: column; */
+  margin-top: 95px;
+}
+@media (max-width: 640px) {
+  .main {
+    grid-template-areas: "leftbar main main" "rightbar rightbar rightbar";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 0.1fr;
+    /* height: auto; */
+  }
 }
