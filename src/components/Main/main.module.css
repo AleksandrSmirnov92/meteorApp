@@ -1,7 +1,6 @@
 .main__wrapper {
   grid-area: "main";
   width: 100%;
-  /* position: fixed; */
   background-color: rgb(241, 148, 148);
 }
 .main__container {

@@ -1,8 +1,5 @@
 .rightbar__wrapper {
   grid-area: rightbar;
-  /* position: absolute;
-  right: 0; */
-  /* width: ; */
   height: 100%;
   background-color: rgb(91, 109, 92);
 }
