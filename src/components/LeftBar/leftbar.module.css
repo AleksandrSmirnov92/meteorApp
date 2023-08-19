@@ -5,7 +5,7 @@
 }
 .leftbar__image-container {
   /* background-color: aqua; */
-  margin-left: -10rem;
+  margin-left: -11rem;
   height: 100%;
 }
 @media (max-width: 640px) {
