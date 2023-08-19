@@ -1,15 +1,13 @@
 .header__wrapper {
   grid-area: header;
-
-  /* width: 100%; */
-  /* background-color: wheat; */
+  background-color: black;
+  position: relative;
 }
 .header__container {
-  position: relative;
   display: flex;
   padding-left: 1rem;
   flex-direction: column;
-  background-color: black;
+  background-color: rgb(143, 118, 118);
   padding-bottom: 1rem;
 }
 
@@ -26,8 +24,5 @@
 }
 @media (max-width: 640px) {
   .header__wrapper {
-    /* position: sticky;
-    width: 100%;
-    top: 0; */
   }
 }
