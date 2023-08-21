@@ -1,25 +1,30 @@
 .main__container {
-  position: static;
+  position: sticky;
   top: 0;
-  background-color: rgb(150, 196, 154);
-  overflow: hidden;
-  /* max-height: 400px; */
+  height: 100vh;
+  /* background-color: rgb(150, 196, 154); */
+  background-color: black;
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-image: url("/Earth.svg");
+  background-position: -6rem;
+  background-repeat: no-repeat;
+  /* background-color: black; */
 }
 .main {
-  display: grid;
-  grid-template-columns: 20% 50% 30%;
-  grid-template-rows: 100px 100vh;
-  grid-template-areas:
-    "header header header"
-    "sidebar-left content sidebar-right";
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+  grid-template-areas: "auto content content"; */
 }
 @media (max-width: 640px) {
   .main__container {
-    height: 100%;
+    background-position: -11rem;
   }
-  .main {
+  /* .main {
     grid-template-columns: 30% 70%;
     grid-template-rows: 100px 100vh 100px;
     grid-template-areas: "header header header" "sidebar-left content content" "sidebar-right sidebar-right sidebar-right";
-  }
+  } */
 }

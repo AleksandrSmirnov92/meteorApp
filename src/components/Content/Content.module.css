@@ -1,0 +1,27 @@
+.content-container {
+  /* position: relative; */
+  display: flex;
+  /* flex-direction: column; */
+  /* width: 100%; */
+  /* height: 100%; */
+  justify-content: center;
+  /* grid-area: content; */
+  /* background-color: rgb(159, 194, 182); */
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  background-color: aqua;
+  color: white;
+}
+@media (max-width: 640px) {
+  .content-container {
+    justify-content: end;
+    /* padding-left: 40px; */
+  }
+  .content {
+    width: 60%;
+  }
+}

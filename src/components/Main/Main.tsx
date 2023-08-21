@@ -2,10 +2,10 @@
 import style from "./main.module.css";
 // import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Asteroid } from "../Main/Asteroid/Asteroid";
 import { Leftbar } from "../LeftBar/LeftBar";
 import { Rightbar } from "../Rigthbar/Rightbar";
-import { Content } from "../Main/Content/Content";
+import { Content } from "../Content/Content";
+import { Header } from "../Header/Header";
 
 export const Main: React.FC = () => {
   let [asteroids, setAsteroids] = useState([]);
@@ -34,9 +34,8 @@ export const Main: React.FC = () => {
   }, [asteroids]);
   return (
     <div className={style.main__container}>
-      <Leftbar />
+      <Header />
       <Content />
-      <Rightbar />
     </div>
   );
 };

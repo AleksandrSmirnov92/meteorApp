@@ -1,9 +1,17 @@
 .main__container {
+  width: 100%;
+  height: 100%;
+  /* background-color: brown; */
+  /* display: grid; */
+  /* grid-template-columns: 1.5fr 2fr 1fr;
+  grid-template-areas: "auto auto sidebar-right"; */
+  /* grid-template-rows: 2fr 100px; */
+  /* justify-content: end; */
 }
 @media (max-width: 640px) {
   .main__container {
-    grid-template-areas: "content";
-    grid-template-columns: 2fr 3fr;
+    /* grid-template-columns: 0.5fr 1fr;
     grid-template-rows: 2fr 100px;
+    grid-template-areas: "auto auto content" "sidebar-right sidebar-right sidebar-right"; */
   }
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 export const Leftbar: React.FC = () => {
   return (
     <div className={style.leftbar__container}>
-      <div className={style["leftbar__image-container"]}>
+      {/* <div className={style["leftbar__image-container"]}>
         <Image
           src="/Earth.svg"
           alt="Earth"
@@ -11,7 +11,7 @@ export const Leftbar: React.FC = () => {
           height={600}
           layout="responsive"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

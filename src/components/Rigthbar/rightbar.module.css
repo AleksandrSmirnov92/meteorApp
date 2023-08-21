@@ -1,15 +1,19 @@
 .rightbar__container {
+  position: fixed;
   background-color: rgb(216, 110, 110);
-  grid-area: sidebar-right;
-  position: sticky;
-  top: 0;
+  top: 20;
+  right: 40px;
+  width: 200px;
+  height: 200px;
+  z-index: 99;
 }
 @media (max-width: 640px) {
   .rightbar__container {
-    /* width: 100%; */
-
+    /* position: sticky; */
+    right: 0;
+    left: 0;
     bottom: 0;
-    z-index: 5;
+    width: 100%;
   }
 }
 /* .rightbar__wrapper {
