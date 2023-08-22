@@ -1,0 +1,48 @@
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card h2 {
+  font-size: calc(1.75rem + 0.390625vw);
+  line-height: 2rem;
+  font-weight: 700;
+  font-family: Helvetica;
+}
+.card__description {
+  display: flex;
+}
+.card__description > div {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: Helvetica;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card__description > img {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.card__description-year {
+  text-decoration: underline;
+  padding-right: 1em;
+}
+.btn-container {
+  display: flex;
+}
+.btn-container > img {
+  align-self: center;
+  padding-left: 1em;
+}
+@media (max-width: 640px) {
+  .card__description > div {
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 389px) {
+  .card__description > div {
+    white-space: pre-wrap;
+    font-size: 1rem;
+  }
+}

@@ -1,83 +1,67 @@
-.rightbar__container {
-  position: fixed;
-  background-color: rgb(216, 110, 110);
-  top: 20;
-  right: 40px;
-  width: 200px;
-  height: 200px;
+.rightbar-container {
+  position: absolute;
+  background-color: #232526;
+  top: 1em;
+  right: 0;
+  padding: 1em;
+  transition: right 1s linear;
+  width: 150px;
+  height: 160px;
+  border-radius: 1em;
   z-index: 99;
 }
-@media (max-width: 640px) {
-  .rightbar__container {
-    /* position: sticky; */
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.rightbar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: Helvetica;
+  line-height: 1.5rem;
+}
+.rightbar-title > * {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Helvetica;
+}
+.rightbar-btn {
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+  justify-content: center;
+}
+@media (max-width: 990px) {
+  .rightbar-container {
+    right: -5rem;
+    transform: translateX(10%);
   }
 }
-/* .rightbar__wrapper {
-  grid-area: rightbar;
-  width: 25%;
-  background-color: rgb(91, 109, 92);
-}
-.rightbar__container {
-  color: white;
-  width: 40%;
-  background-color: #232526;
-  border-radius: 1rem;
-  padding: 10px;
-}
-.rightbar__basket {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-.rightbar__basket-text {
-  display: flex;
-  flex-direction: column;
-}
-.rightbar__basket-text > * {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-.rightbar__basket-btn {
-  margin-top: 2rem;
-  cursor: pointer;
-  text-align: center;
-  background-color: #f86600;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 1rem;
-}
-.rightbar__basket-btn:hover {
-  opacity: 0.9;
+@media (max-width: 810px) {
+  .rightbar-container {
+    right: -8rem;
+    transform: translateX(10%);
+  }
 }
 @media (max-width: 640px) {
-  .rightbar__wrapper {
-    height: auto;
-
-    bottom: 0;
-  }
-  .rightbar__container {
+  .rightbar-container {
+    position: fixed;
     display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  .rightbar__basket {
-    width: 100%;
-    flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    right: auto;
+    transform: translateX(0);
   }
-  .rightbar__basket-text {
+  .rightbar-container > * {
     align-self: center;
   }
-  .rightbar__basket-btn {
-    margin: 0;
-    align-self: center;
+  .rightbar-title {
+    width: 50%;
   }
-} */
+  .rightbar-btn {
+    margin-top: 0;
+    width: 50%;
+    justify-content: end;
+  }
+}

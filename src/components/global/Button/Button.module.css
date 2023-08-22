@@ -1,0 +1,28 @@
+.btn-sml {
+  cursor: pointer;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 1rem;
+}
+.btn-lrg {
+  cursor: pointer;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 1rem;
+}
+.btn-sml:hover {
+  opacity: 0.8;
+}
+.btn-lrg:hover {
+  opacity: 0.8;
+}
+.btn-color_orange {
+  background-color: #f86600;
+}
+.btn-color_none {
+  background-color: none;
+}

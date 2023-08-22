@@ -1,27 +1,54 @@
 .content-container {
-  /* position: relative; */
   display: flex;
-  /* flex-direction: column; */
-  /* width: 100%; */
-  /* height: 100%; */
+  margin-left: 2em;
   justify-content: center;
-  /* grid-area: content; */
-  /* background-color: rgb(159, 194, 182); */
 }
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
   height: 100%;
-  background-color: aqua;
+  /* background-color: rgb(71, 92, 92); */
   color: white;
+  padding: 1em;
+  word-wrap: break-word;
+}
+.content h2 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
+  font-family: Helvetica;
+}
+.toggleBar {
+  display: flex;
+  margin-top: 1em;
+}
+.toggleBar > * {
+  align-self: center;
+}
+.toggleBar-btn > span {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: Helvetica;
+}
+.btn-active {
+}
+.card-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 640px) {
   .content-container {
-    justify-content: end;
-    /* padding-left: 40px; */
+    margin-left: 0;
+    width: 100%;
   }
   .content {
-    width: 60%;
+    width: 100%;
+    margin-left: 2.5em;
+  }
+  .toggleBar-btn > span {
+    font-size: 2vh;
   }
 }

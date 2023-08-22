@@ -2,29 +2,21 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  /* background-color: rgb(150, 196, 154); */
   background-color: black;
-  /* overflow: hidden; */
   overflow-y: scroll;
   overflow-x: hidden;
   background-image: url("/Earth.svg");
-  background-position: -6rem;
+  background-position: -5rem 6rem;
+  background-size: 35%;
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  /* background-color: black; */
 }
-.main {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100vh;
-  grid-template-areas: "auto content content"; */
-}
+
 @media (max-width: 640px) {
   .main__container {
-    background-position: -11rem;
+    background-size: 49vh;
+    background-position: -16rem;
+    /* background-position: -15rem; */
+    background-attachment: local;
   }
-  /* .main {
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 100px 100vh 100px;
-    grid-template-areas: "header header header" "sidebar-left content content" "sidebar-right sidebar-right sidebar-right";
-  } */
 }
