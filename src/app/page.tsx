@@ -1,4 +1,3 @@
-"use client";
 import styles from "./page.module.css";
 import { Rightbar } from "@/components/Rigthbar/Rightbar";
 // import { Header } from "../components/Header/Header";

@@ -1,16 +1,11 @@
+"use client";
 import style from "./Content.module.css";
 import { Rightbar } from "../Rigthbar/Rightbar";
 import { Card } from "../Card/Card";
-interface Asteroid {
-  name: string;
-  meters: {
-    estimated_diameter_max: number;
-  };
-}
-interface Props {
-  asteroids: Asteroid[];
-}
-export const Content: React.FC<Props> = ({ asteroids }) => {
+import { useState } from "react";
+import { ContentProps } from "../../types";
+export const Content: React.FC<ContentProps> = ({ data }) => {
+  let [toggleBar, setToggleBar] = useState(true);
   return (
     <div className={style["content-container"]}>
       <div className={style.content}>
@@ -18,22 +13,36 @@ export const Content: React.FC<Props> = ({ asteroids }) => {
           Ближайшие подлёты <br /> астероидов
         </h2>
         <pre className={style.toggleBar}>
-          <button className={style["toggleBar-btn"]}>
+          <button
+            onClick={() => setToggleBar(true)}
+            className={`${style[`toggleBar-btn`]} ${
+              style[
+                `${
+                  toggleBar ? "toggleBar-btn_active" : "toggleBar-btn_inactive"
+                }`
+              ]
+            }`}
+          >
             <span>В километрах</span>
           </button>
           <span>{" | "}</span>
-          <button className={style["toggleBar-btn"]}>
+          <button
+            onClick={() => setToggleBar(false)}
+            className={`${style[`toggleBar-btn`]} ${
+              style[
+                `${
+                  !toggleBar ? "toggleBar-btn_active" : "toggleBar-btn_inactive"
+                }`
+              ]
+            }`}
+          >
             <span>В лунных арбитах</span>
           </button>
         </pre>
         <div className={style["card-container"]}>
           <>
-            {asteroids.map((asteroid: Asteroid, index) => (
-              <Card
-                name={asteroid.name}
-                diameter={asteroid.meters.estimated_diameter_max}
-                key={index}
-              />
+            {data.map((item) => (
+              <Card key={item.id} />
             ))}
           </>
           <Rightbar />

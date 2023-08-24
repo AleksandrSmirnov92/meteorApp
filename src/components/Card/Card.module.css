@@ -7,6 +7,7 @@
   line-height: 2rem;
   font-weight: 700;
   font-family: Helvetica;
+  margin-bottom: 0.5em;
 }
 .card__description {
   display: flex;

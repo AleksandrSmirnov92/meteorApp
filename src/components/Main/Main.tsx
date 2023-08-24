@@ -1,12 +1,8 @@
-"use client";
 import style from "./main.module.css";
-// import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Leftbar } from "../LeftBar/LeftBar";
-import { Rightbar } from "../Rigthbar/Rightbar";
 import { Content } from "../Content/Content";
 import { Header } from "../Header/Header";
-let response: {}[] = [
+import { ResponceData } from "../../types/index";
+let responceData: ResponceData[] = [
   {
     absolute_magnitude_h: 17.5,
     close_approach_date: [
@@ -55,39 +51,29 @@ let response: {}[] = [
     neo_reference_id: "2004769",
   },
 ];
-export const Main: React.FC = () => {
-  let [asteroids, setAsteroids] = useState<any>([]);
 
-  useEffect(() => {
-    let date = new Date();
-    let dateFormat: string = `${date.getFullYear()}-${String(
-      date.getMonth() + 1
-    ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-    async function getInfoAsteroid() {
-      // const res = await fetch(
-      //   "https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-18&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo"
-      // );
-      // const response: any = await res.json();
-      // console.log(
-      //   response.near_earth_objects[
-      //     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
-      //       2,
-      //       "0"
-      //     )}-${String(date.getDate()).padStart(2, "0")}`
-      //   ]
-      // );
-      // let asteroid = {
-      //   name: response.name,
-      //   diameter: response.meters.estimated_diameter_max,
-      // };
-      setAsteroids(response);
-    }
-    getInfoAsteroid();
-  }, [asteroids]);
+const getData = async () => {
+  // fetch .... newObject
+  return responceData.map((item) => {
+    return {
+      id: item.id,
+      name: item.name,
+      approach_date: item.close_approach_date[0].close_approach_date,
+      diameter: item.meters.estimated_diameter_max,
+      distanse: {
+        killometers: item.close_approach_date[0].miss_distanse.killometers,
+        lunar: item.close_approach_date[0].miss_distanse.lunar,
+      },
+    };
+  });
+};
+export const Main = async () => {
+  let data = await getData();
+  console.log(data);
   return (
     <div className={style.main__container}>
       <Header />
-      <Content asteroids={asteroids} />
+      <Content data={data} />
     </div>
   );
 };
