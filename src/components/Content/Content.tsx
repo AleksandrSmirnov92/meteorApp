@@ -3,9 +3,11 @@ import style from "./Content.module.css";
 import { Rightbar } from "../Rigthbar/Rightbar";
 import { Card } from "../Card/Card";
 import { useState } from "react";
-import { ContentProps } from "../../types";
+import { ContentProps, Asteroid } from "../../types";
+import store from "../../store/store";
 export const Content: React.FC<ContentProps> = ({ data }) => {
   let [toggleBar, setToggleBar] = useState(true);
+  let asteroids = store.getState();
   return (
     <div className={style["content-container"]}>
       <div className={style.content}>
@@ -14,7 +16,10 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
         </h2>
         <pre className={style.toggleBar}>
           <button
-            onClick={() => setToggleBar(true)}
+            onClick={() => {
+              setToggleBar(true);
+              console.log(asteroids);
+            }}
             className={`${style[`toggleBar-btn`]} ${
               style[
                 `${
@@ -41,8 +46,12 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
         </pre>
         <div className={style["card-container"]}>
           <>
-            {data.map((item) => (
-              <Card key={item.id} />
+            {data.map((item: Asteroid) => (
+              <Card
+                key={item.id}
+                data={item}
+                active_link_distance={toggleBar}
+              />
             ))}
           </>
           <Rightbar />

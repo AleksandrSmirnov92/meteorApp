@@ -1,31 +1,31 @@
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
+import { basket } from "../../store/Basket";
 import { Button } from "../global/Button/Button";
-import { calculationOfLunar, ruDate } from "../../utils/index";
+import {
+  calculationOfLunar,
+  ruDate,
+  addInBasketAsteroid,
+} from "../../utils/index";
 import style from "./Card.module.css";
-
-export const Card: React.FC<any> = ({
-  id,
-  name,
-  diameter,
-  distanse,
-  active_distance,
-  handleClick,
-}) => {
-  let asteroid = { id, name, diameter, distanse, active_distance };
+import Link from "next/link";
+import { CardProps } from "../../types";
+export const Card: React.FC<CardProps> = ({ data, active_link_distance }) => {
+  let { id, name, distanse } = data;
   return (
     <div className={style["card"]}>
       <h2>{ruDate("2023-08-22")}</h2>
       <div className={style["card__description"]}>
         <div>
-          {active_distance ? (
-            <span>{Math.round(Number(5))} км</span>
+          {active_link_distance ? (
+            <span>{Math.round(Number(distanse.killometers))} км</span>
           ) : (
-            <span>{calculationOfLunar("5")}</span>
+            <span>{calculationOfLunar(distanse.lunar)}</span>
           )}
           <Image alt="Arrow" src={"/Arrow.svg"} width={100} height={1} />
         </div>
-        <Image alt="Meteor" src={"/meteor.svg"} width={30} height={30} />
+        <Link href={`/asteroid/${id}`}>
+          <Image alt="Meteor" src={"/meteor.svg"} width={35} height={35} />
+        </Link>
         <div>
           <span className={style["card__description-year"]}>{name}</span>
 
@@ -37,7 +37,9 @@ export const Card: React.FC<any> = ({
           text={"Заказать"}
           color="orange"
           size="sml"
-          handleClick={() => handleClick(asteroid)}
+          handleClick={() => {
+            addInBasketAsteroid(data, basket);
+          }}
         />
         <Image src={"/warning.svg"} alt="warning" width={90} height={90} />
       </div>

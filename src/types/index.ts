@@ -59,3 +59,10 @@ export interface Asteroid {
 export interface ContentProps {
   data: Asteroid[];
 }
+export interface CardProps {
+  data: Asteroid;
+  active_link_distance?: boolean;
+}
+export interface Store {
+  asteroids: Asteroid[];
+}

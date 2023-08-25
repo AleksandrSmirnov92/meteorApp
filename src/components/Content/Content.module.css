@@ -31,6 +31,9 @@
   line-height: 1.5rem;
   font-family: Helvetica;
 }
+.toggleBar-btn > span:hover {
+  opacity: 0.8;
+}
 .toggleBar-btn_active {
   font-weight: bold;
 }

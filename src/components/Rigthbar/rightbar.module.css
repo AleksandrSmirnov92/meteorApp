@@ -27,6 +27,10 @@
   margin-top: 1em;
   justify-content: center;
 }
+.rightbar-link {
+  text-decoration: none;
+  color: white;
+}
 @media (max-width: 990px) {
   .rightbar-container {
     right: -5rem;

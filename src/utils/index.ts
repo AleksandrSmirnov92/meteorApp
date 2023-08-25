@@ -17,3 +17,6 @@ export const ruDate = (date: string): string => {
   });
   return ruDate.format(currentDate);
 };
+export const addInBasketAsteroid = (asteroid: any, basket: any) => {
+  basket.push(asteroid);
+};

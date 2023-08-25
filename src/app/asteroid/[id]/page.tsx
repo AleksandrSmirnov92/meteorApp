@@ -1,6 +1,7 @@
 import style from "./asteroid.module.css";
 import Image from "next/image";
-export default function Asteroid() {
+export default function Asteroid({ params }: any) {
+  console.log(params);
   return (
     <div className={style.asteroid__wrapper}>
       <div className={style.asteroid__container}>
@@ -9,7 +10,7 @@ export default function Asteroid() {
           <Image src="/meteor.svg" alt="Meteor" width={200} height={400} />
           <span>Описание Астероида</span>
         </div>
-        Здесь будет информация о астероиде
+        Здесь будет информация о астероиде {params.id}
       </div>
     </div>
   );

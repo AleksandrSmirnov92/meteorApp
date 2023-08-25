@@ -1,2 +1,1 @@
-import { BasketTypes } from "@/types";
-export const basket: BasketTypes = [];
+export const basket: {}[] = [];
