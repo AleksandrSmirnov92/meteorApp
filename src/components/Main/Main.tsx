@@ -1,6 +1,5 @@
 import style from "./main.module.css";
-import store from "../../store/store";
-import { addAsteroids } from "@/store/asteroidsSlice";
+
 import { Content } from "../Content/Content";
 import { Header } from "../Header/Header";
 import { ResponceData } from "../../types/index";
@@ -72,8 +71,7 @@ const getData = async () => {
 };
 export const Main = async () => {
   let data = await getData();
-  store.dispatch(addAsteroids(data));
-  // console.log(store.getState());
+
   return (
     <div className={style.main__container}>
       <Header />

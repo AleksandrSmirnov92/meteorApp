@@ -4,10 +4,10 @@ import { Rightbar } from "../Rigthbar/Rightbar";
 import { Card } from "../Card/Card";
 import { useState } from "react";
 import { ContentProps, Asteroid } from "../../types";
-import store from "../../store/store";
+
 export const Content: React.FC<ContentProps> = ({ data }) => {
   let [toggleBar, setToggleBar] = useState(true);
-  let asteroids = store.getState();
+
   return (
     <div className={style["content-container"]}>
       <div className={style.content}>
@@ -18,7 +18,6 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
           <button
             onClick={() => {
               setToggleBar(true);
-              console.log(asteroids);
             }}
             className={`${style[`toggleBar-btn`]} ${
               style[
