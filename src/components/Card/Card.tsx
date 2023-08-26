@@ -1,11 +1,7 @@
 import Image from "next/image";
-import { basket } from "../../store/Basket";
+
 import { Button } from "../global/Button/Button";
-import {
-  calculationOfLunar,
-  ruDate,
-  addInBasketAsteroid,
-} from "../../utils/index";
+import { calculationOfLunar, ruDate } from "../../utils/index";
 import style from "./Card.module.css";
 import Link from "next/link";
 import { CardProps } from "../../types";
@@ -37,9 +33,7 @@ export const Card: React.FC<CardProps> = ({ data, active_link_distance }) => {
           text={"Заказать"}
           color="orange"
           size="sml"
-          handleClick={() => {
-            addInBasketAsteroid(data, basket);
-          }}
+          handleClick={() => {}}
         />
         <Image src={"/warning.svg"} alt="warning" width={90} height={90} />
       </div>
