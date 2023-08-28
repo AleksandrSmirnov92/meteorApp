@@ -4,10 +4,10 @@ import { Rightbar } from "../Rigthbar/Rightbar";
 import { Card } from "../Card/Card";
 import { useState } from "react";
 import { ContentProps, Asteroid } from "../../types";
-
+import { useAsteroidContext } from "@/context/AsteroidContext";
 export const Content: React.FC<ContentProps> = ({ data }) => {
   let [toggleBar, setToggleBar] = useState(true);
-
+  let { basket, addAsteroidInBasket } = useAsteroidContext();
   return (
     <div className={style["content-container"]}>
       <div className={style.content}>
@@ -50,10 +50,12 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
                 key={item.id}
                 data={item}
                 active_link_distance={toggleBar}
+                addAsteroidInBasket={addAsteroidInBasket}
+                basket={basket}
               />
             ))}
           </>
-          <Rightbar />
+          <Rightbar basket={basket} />
         </div>
       </div>
     </div>

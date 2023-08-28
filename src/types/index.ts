@@ -55,6 +55,7 @@ export interface Asteroid {
     killometers: string;
     lunar: string;
   };
+  active?: boolean;
 }
 export interface ContentProps {
   data: Asteroid[];
@@ -62,4 +63,9 @@ export interface ContentProps {
 export interface CardProps {
   data: Asteroid;
   active_link_distance?: boolean;
+  addAsteroidInBasket: (asteroid: Asteroid) => void;
+  basket?: Asteroid[];
+}
+export interface RightbarProps {
+  basket: Asteroid[];
 }

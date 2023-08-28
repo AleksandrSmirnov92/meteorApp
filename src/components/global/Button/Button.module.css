@@ -23,6 +23,10 @@
 .btn-color_orange {
   background-color: #f86600;
 }
+.btn-color_orange-dark {
+  background-color: #f8670052;
+  color: #f86600;
+}
 .btn-color_none {
   background-color: none;
 }

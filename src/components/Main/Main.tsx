@@ -66,6 +66,7 @@ const getData = async () => {
         killometers: item.close_approach_date[0].miss_distanse.killometers,
         lunar: item.close_approach_date[0].miss_distanse.lunar,
       },
+      active: false,
     };
   });
 };

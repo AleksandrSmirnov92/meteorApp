@@ -1,11 +1,15 @@
 import Image from "next/image";
-
 import { Button } from "../global/Button/Button";
 import { calculationOfLunar, ruDate } from "../../utils/index";
 import style from "./Card.module.css";
 import Link from "next/link";
 import { CardProps } from "../../types";
-export const Card: React.FC<CardProps> = ({ data, active_link_distance }) => {
+export const Card: React.FC<CardProps> = ({
+  data,
+  active_link_distance,
+  addAsteroidInBasket,
+  basket,
+}) => {
   let { id, name, distanse } = data;
   return (
     <div className={style["card"]}>
@@ -30,10 +34,12 @@ export const Card: React.FC<CardProps> = ({ data, active_link_distance }) => {
       </div>
       <div className={style["btn-container"]}>
         <Button
-          text={"Заказать"}
-          color="orange"
+          text={!basket?.includes(data) ? "Заказать" : "В корзине"}
+          color={!basket?.includes(data) ? "orange" : "orange-dark"}
           size="sml"
-          handleClick={() => {}}
+          handleClick={() => {
+            addAsteroidInBasket(data);
+          }}
         />
         <Image src={"/warning.svg"} alt="warning" width={90} height={90} />
       </div>
