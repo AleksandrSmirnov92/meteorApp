@@ -1,9 +1,9 @@
-import style from "./main.module.css";
-
-import { Content } from "../Content/Content";
-import Header from "../Header/Header";
-import { ResponceData } from "../../types/index";
-
+"use client";
+import style from "./BasketContent.module.css";
+import { Card } from "../Card/Card";
+import { useAsteroidContext } from "@/context/AsteroidContext";
+import { Asteroid, ResponceData } from "@/types";
+import { useEffect, useState } from "react";
 let responceData: ResponceData[] = [
   {
     absolute_magnitude_h: 17.5,
@@ -100,30 +100,45 @@ let responceData: ResponceData[] = [
     neo_reference_id: "2004769",
   },
 ];
-
-const getData = async () => {
-  // fetch .... newObject
-  return responceData.map((item) => {
-    return {
-      id: item.id,
-      name: item.name,
-      approach_date: item.close_approach_date[0].close_approach_date,
-      diameter: item.meters.estimated_diameter_max,
-      distanse: {
-        killometers: item.close_approach_date[0].miss_distanse.killometers,
-        lunar: item.close_approach_date[0].miss_distanse.lunar,
-      },
-      active: false,
-    };
-  });
-};
-export const Main = async () => {
-  let data = await getData();
+const BasketContent = () => {
+  const { basket, toggleBar } = useAsteroidContext();
+  const [baskets, setBasket] = useState<any>([]);
+  useEffect(() => {
+    //  fetch to api Nasa
+    let data = responceData
+      .filter((item) => basket.includes(item.id))
+      .map((item) => {
+        return {
+          id: item.id,
+          name: item.name,
+          approach_date: item.close_approach_date[0].close_approach_date,
+          diameter: item.meters.estimated_diameter_max,
+          distanse: {
+            killometers: item.close_approach_date[0].miss_distanse.killometers,
+            lunar: item.close_approach_date[0].miss_distanse.lunar,
+          },
+          active: false,
+        };
+      });
+    setBasket(data);
+  }, [basket]);
 
   return (
-    <div className={style.main__container}>
-      <Header />
-      <Content data={data} />
+    <div className={style["basket-container"]}>
+      <div className={style.content}>
+        <h2>Заказ отправлен!</h2>
+        <div className={style["card-container"]}>
+          {baskets.map((item: Asteroid) => (
+            <Card
+              key={item.id}
+              data={item}
+              btnActive={false}
+              active_link_distance={toggleBar}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
+export default BasketContent;

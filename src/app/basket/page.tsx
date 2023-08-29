@@ -1,8 +1,14 @@
 "use client";
+import MainBasketComp from "@/components/MainBasketComp/MainBasketComp";
+import style from "./page.module.css";
 import { useAsteroidContext } from "../../context/AsteroidContext";
 const Basket = () => {
   const data = useAsteroidContext();
   console.log(data);
-  return <div>Тут будут все заказы из корзины</div>;
+  return (
+    <div className={style["basket-container"]}>
+      <MainBasketComp />
+    </div>
+  );
 };
 export default Basket;

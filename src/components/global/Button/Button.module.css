@@ -30,3 +30,9 @@
 .btn-color_none {
   background-color: none;
 }
+.btn-display_none {
+  display: none;
+}
+.btn-display_block {
+  display: block;
+}

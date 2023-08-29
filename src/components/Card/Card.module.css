@@ -1,4 +1,5 @@
 .card {
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.card__description > img {
+.card__description > a {
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
@@ -31,9 +32,11 @@
 .btn-container {
   display: flex;
 }
+
 .btn-container > img {
   align-self: center;
-  padding-left: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 @media (max-width: 640px) {
   .card__description > div {

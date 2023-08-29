@@ -5,6 +5,7 @@ interface ButtonProps {
   color?: string;
   size?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  display?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -12,12 +13,15 @@ export const Button: React.FC<ButtonProps> = ({
   color,
   size,
   handleClick,
+  display,
 }) => {
   return (
     <>
       <button
         onClick={handleClick}
-        className={`${style[`btn-${size}`]} ${style[`btn-color_${color}`]}`}
+        className={`${style[`btn-${size}`]} ${style[`btn-color_${color}`]} ${
+          style[`btn-display_${display}`]
+        }`}
       >
         <span className={`${style["btn-text"]} ${style[`btn-${color}`]}`}>
           {text}

@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AsteroidProvider } from "../context/AsteroidContext";
-// import { Header } from "../components/Header/Header";
+import { Header } from "../components/Header/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

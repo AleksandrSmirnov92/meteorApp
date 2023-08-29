@@ -1,0 +1,36 @@
+.basket-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 2em;
+}
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  color: white;
+  padding: 1em;
+  word-wrap: break-word;
+}
+.content h2 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  font-weight: 700;
+  font-family: Helvetica;
+}
+.card-container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 640px) {
+  .basket-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  .content {
+    width: 100%;
+    margin-left: 2.5em;
+  }
+}

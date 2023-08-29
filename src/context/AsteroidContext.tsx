@@ -7,33 +7,45 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { Asteroid } from "../types";
-interface Name {}
+// import { Asteroid } from "../types";
 
 interface ContextProps {
-  basket: Asteroid[];
-  addAsteroidInBasket: (asteroid: Asteroid) => void;
+  basket: string[];
+  addAsteroidInBasket: (asteroid: string) => void;
+  toggleBar: boolean;
+  setToggleBar: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AsteroidsContext = createContext<ContextProps>({
   basket: [],
   addAsteroidInBasket(asteroid) {},
+  toggleBar: true,
+  setToggleBar() {},
 });
 export const useAsteroidContext = () => useContext(AsteroidsContext);
 
 export const AsteroidProvider = ({ children }: { children: ReactNode }) => {
-  const [basket, setBasket] = useState<Asteroid[]>([]);
-  const addAsteroidInBasket = (asteroid: Asteroid): any => {
-    if (!basket.includes(asteroid)) {
-      setBasket((prev) => [...prev, asteroid]);
-    } else {
-      let remove = basket.filter((item) => item.id !== asteroid.id);
+  const [basket, setBasket] = useState<string[]>(
+    localStorage.getItem("asteroid")
+      ? JSON.parse(localStorage.getItem("asteroid")!)
+      : []
+  );
+  const [toggleBar, setToggleBar] = useState(true);
+  const addAsteroidInBasket = (asteroid: string): any => {
+    if (basket.includes(asteroid)) {
+      let remove = basket.filter((item) => item !== asteroid);
       setBasket(remove);
-      console.log("Обьект уже есть в корзине");
+      localStorage.setItem("asteroid", JSON.stringify(remove));
+    } else {
+      setBasket((prev) => [...prev, asteroid]);
+      localStorage.setItem("asteroid", JSON.stringify([...basket, asteroid]));
     }
   };
+
   return (
-    <AsteroidsContext.Provider value={{ basket, addAsteroidInBasket }}>
+    <AsteroidsContext.Provider
+      value={{ basket, addAsteroidInBasket, toggleBar, setToggleBar }}
+    >
       {children}
     </AsteroidsContext.Provider>
   );

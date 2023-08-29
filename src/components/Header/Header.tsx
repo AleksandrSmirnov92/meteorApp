@@ -1,5 +1,5 @@
 import header from "./header.module.css";
-export const Header: React.FC = () => {
+const Header = () => {
   return (
     <div className={header.header__wrapper}>
       <div className={header.header__container}>
@@ -12,3 +12,4 @@ export const Header: React.FC = () => {
     </div>
   );
 };
+export default Header;

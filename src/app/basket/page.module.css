@@ -1,4 +1,4 @@
-.main__container {
+.basket-container {
   position: sticky;
   top: 0;
   height: 100vh;
@@ -13,7 +13,7 @@
 }
 
 @media (max-width: 640px) {
-  .main__container {
+  .basket-container {
     background-size: 49vh;
     background-position: -16rem;
     background-attachment: local;

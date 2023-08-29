@@ -9,6 +9,7 @@ export const Card: React.FC<CardProps> = ({
   active_link_distance,
   addAsteroidInBasket,
   basket,
+  btnActive,
 }) => {
   let { id, name, distanse } = data;
   return (
@@ -34,12 +35,13 @@ export const Card: React.FC<CardProps> = ({
       </div>
       <div className={style["btn-container"]}>
         <Button
-          text={!basket?.includes(data) ? "Заказать" : "В корзине"}
-          color={!basket?.includes(data) ? "orange" : "orange-dark"}
+          text={!basket?.includes(data.id) ? "Заказать" : "В корзине"}
+          color={!basket?.includes(data.id) ? "orange" : "orange-dark"}
           size="sml"
           handleClick={() => {
-            addAsteroidInBasket(data);
+            addAsteroidInBasket!(data.id);
           }}
+          display={btnActive ? "block" : "none"}
         />
         <Image src={"/warning.svg"} alt="warning" width={90} height={90} />
       </div>
