@@ -62,7 +62,7 @@ let responceData: ResponceData[] = [
         miss_distanse: {
           astronomical: "0.11002284",
           killometers: "16459697.73041508",
-          lunar: "42.800224476",
+          lunar: "9.800224476",
           miles: "10227581.910404904",
         },
         orbiting_body: "Earch",

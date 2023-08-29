@@ -25,7 +25,12 @@ export const Card: React.FC<CardProps> = ({
           <Image alt="Arrow" src={"/Arrow.svg"} width={100} height={1} />
         </div>
         <Link href={`/asteroid/${id}`}>
-          <Image alt="Meteor" src={"/meteor.svg"} width={35} height={35} />
+          <Image
+            alt="Meteor"
+            src={"/meteor.svg"}
+            width={Math.round(Number(distanse.lunar)) > 10 ? 35 : 25}
+            height={Math.round(Number(distanse.lunar)) > 10 ? 35 : 25}
+          />
         </Link>
         <div>
           <span className={style["card__description-year"]}>{name}</span>
