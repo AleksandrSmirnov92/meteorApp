@@ -3,6 +3,7 @@ import Main from "../components/Main/Main";
 export default function Home() {
   return (
     <main className={styles.main__container}>
+      {/* @ts-expect-error Server Component */}
       <Main />
     </main>
   );
