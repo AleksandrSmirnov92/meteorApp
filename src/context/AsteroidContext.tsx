@@ -14,7 +14,7 @@ interface ContextProps {
   toggleBar: boolean;
   setToggleBar: Dispatch<SetStateAction<boolean>>;
 }
-localStorage.setItem("asteroid", JSON.stringify([]));
+
 export const AsteroidsContext = createContext<ContextProps>({
   basket: [],
   addAsteroidInBasket(asteroid) {},
