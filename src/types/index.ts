@@ -1,14 +1,15 @@
 import { Dispatch, SetStateAction } from "react";
+
 export interface ResponceData {
   absolute_magnitude_h: number;
-  close_approach_date: [
+  close_approach_data: [
     {
       close_approach_date: string;
       close_approach_date_full: string;
       epoch_date_close_approach: number;
-      miss_distanse: {
+      miss_distance: {
         astronomical: string;
-        killometers: string;
+        kilometers: string;
         lunar: string;
         miles: string;
       };
@@ -20,21 +21,23 @@ export interface ResponceData {
       };
     }
   ];
-  feet: {
-    estimated_diameter_max: number;
-    estimated_diameter_min: number;
-  };
-  kilometers: {
-    estimated_diameter_max: number;
-    estimated_diameter_min: number;
-  };
-  meters: {
-    estimated_diameter_max: number;
-    estimated_diameter_min: number;
-  };
-  miles: {
-    estimated_diameter_max: number;
-    estimated_diameter_min: number;
+  estimated_diameter: {
+    feet: {
+      estimated_diameter_max: number;
+      estimated_diameter_min: number;
+    };
+    kilometers: {
+      estimated_diameter_max: number;
+      estimated_diameter_min: number;
+    };
+    meters: {
+      estimated_diameter_max: number;
+      estimated_diameter_min: number;
+    };
+    miles: {
+      estimated_diameter_max: number;
+      estimated_diameter_min: number;
+    };
   };
   id: string;
   is_potentially_hazardous_asteroid: boolean;
@@ -51,7 +54,7 @@ export interface Asteroid {
   name: string;
   approach_date: string;
   diameter: number;
-  distanse: {
+  distance: {
     killometers: string;
     lunar: string;
   };

@@ -11,16 +11,16 @@ export const Card: React.FC<CardProps> = ({
   basket,
   btnActive,
 }) => {
-  let { id, name, distanse } = data;
+  let { id, name, distance, approach_date, diameter } = data;
   return (
     <div className={style["card"]}>
-      <h2>{ruDate("2023-08-22")}</h2>
+      <h2>{ruDate(approach_date)}</h2>
       <div className={style["card__description"]}>
         <div>
           {active_link_distance ? (
-            <span>{Math.round(Number(distanse.killometers))} км</span>
+            <span>{Math.round(Number(distance.killometers))} км</span>
           ) : (
-            <span>{calculationOfLunar(distanse.lunar)}</span>
+            <span>{calculationOfLunar(distance.lunar)}</span>
           )}
           <Image alt="Arrow" src={"/Arrow.svg"} width={100} height={1} />
         </div>
@@ -28,14 +28,14 @@ export const Card: React.FC<CardProps> = ({
           <Image
             alt="Meteor"
             src={"/meteor.svg"}
-            width={Math.round(Number(distanse.lunar)) > 10 ? 35 : 25}
-            height={Math.round(Number(distanse.lunar)) > 10 ? 35 : 25}
+            width={Math.round(Number(distance.lunar)) > 100 ? 35 : 25}
+            height={Math.round(Number(distance.lunar)) > 100 ? 35 : 25}
           />
         </Link>
         <div>
           <span className={style["card__description-year"]}>{name}</span>
 
-          <span>Ø {Math.round(22)}</span>
+          <span>Ø {Math.round(diameter)}</span>
         </div>
       </div>
       <div className={style["btn-container"]}>

@@ -1,5 +1,5 @@
 .main__container {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   height: 100vh;
   background-color: black;
@@ -16,6 +16,6 @@
   .main__container {
     background-size: 49vh;
     background-position: -16rem;
-    background-attachment: local;
+    background-attachment: fixed;
   }
 }

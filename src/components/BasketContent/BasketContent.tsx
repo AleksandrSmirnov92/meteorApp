@@ -126,7 +126,7 @@ const BasketContent = () => {
   return (
     <div className={style["basket-container"]}>
       <div className={style.content}>
-        <h2>Заказ отправлен!</h2>
+        <h2>{baskets.length > 0 ? "Заказ отправлен!" : "Корзина пуста!"}</h2>
         <div className={style["card-container"]}>
           {baskets.map((item: Asteroid) => (
             <Card

@@ -4,7 +4,7 @@
   justify-content: center;
 }
 .content {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -56,5 +56,8 @@
   }
   .toggleBar-btn > span {
     font-size: 2vh;
+  }
+  .card-container {
+    margin-bottom: 5em;
   }
 }

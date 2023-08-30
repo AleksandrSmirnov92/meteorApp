@@ -7,7 +7,6 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-// import { Asteroid } from "../types";
 
 interface ContextProps {
   basket: string[];
@@ -15,7 +14,7 @@ interface ContextProps {
   toggleBar: boolean;
   setToggleBar: Dispatch<SetStateAction<boolean>>;
 }
-
+localStorage.setItem("asteroid", JSON.stringify([]));
 export const AsteroidsContext = createContext<ContextProps>({
   basket: [],
   addAsteroidInBasket(asteroid) {},
@@ -31,7 +30,7 @@ export const AsteroidProvider = ({ children }: { children: ReactNode }) => {
       : []
   );
   const [toggleBar, setToggleBar] = useState(true);
-  const addAsteroidInBasket = (asteroid: string): any => {
+  const addAsteroidInBasket = (asteroid: string): void => {
     if (basket.includes(asteroid)) {
       let remove = basket.filter((item) => item !== asteroid);
       setBasket(remove);

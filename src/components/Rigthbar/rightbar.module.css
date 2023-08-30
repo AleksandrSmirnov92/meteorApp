@@ -1,8 +1,8 @@
 .rightbar-container {
   position: absolute;
   background-color: #232526;
-  top: 1em;
-  right: 0;
+  top: 7em;
+  right: 25em;
   padding: 1em;
   transition: right 1s linear;
   width: 150px;
@@ -31,19 +31,25 @@
   text-decoration: none;
   color: white;
 }
+@media (max-width: 1180px) {
+  .rightbar-container {
+    right: 15rem;
+    transform: translateX(10%);
+  }
+}
 @media (max-width: 990px) {
   .rightbar-container {
-    right: -5rem;
+    right: 10rem;
     transform: translateX(10%);
   }
 }
-@media (max-width: 810px) {
+@media (max-width: 850px) {
   .rightbar-container {
-    right: -8rem;
+    right: 3.5rem;
     transform: translateX(10%);
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .rightbar-container {
     position: fixed;
     display: flex;
