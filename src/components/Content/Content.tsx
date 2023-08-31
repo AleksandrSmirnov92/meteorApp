@@ -4,9 +4,29 @@ import { Rightbar } from "../Rigthbar/Rightbar";
 import { Card } from "../Card/Card";
 import { ContentProps, Asteroid } from "../../types";
 import { useAsteroidContext } from "@/context/AsteroidContext";
+import { useEffect } from "react";
+
 export const Content: React.FC<ContentProps> = ({ data }) => {
-  let { basket, addAsteroidInBasket, toggleBar, setToggleBar } =
+  let { basketId, addAsteroidInBasket, toggleBar, setToggleBar } =
     useAsteroidContext();
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await fetch(
+  //       `https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-09-30&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
+  //     );
+  //     let responce = await data.json();
+  //     console.log("data", responce);
+  //   };
+  //   const getDataBrouser = async () => {
+  //     const data = await fetch(
+  //       "http://api.nasa.gov/neo/rest/v1/neo/browse?page=0&size=1657&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo"
+  //     );
+  //     let responce = await data.json();
+  //     console.log("browser", responce);
+  //   };
+  //   getData();
+  //   getDataBrouser();
+  // }, []);
   return (
     <div className={style["content-container"]}>
       <div className={style.content}>
@@ -50,12 +70,12 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
                 data={item}
                 active_link_distance={toggleBar}
                 addAsteroidInBasket={addAsteroidInBasket}
-                basket={basket}
+                basketId={basketId}
                 btnActive={true}
               />
             ))}
           </>
-          <Rightbar basket={basket} />
+          <Rightbar basketId={basketId} />
         </div>
       </div>
     </div>

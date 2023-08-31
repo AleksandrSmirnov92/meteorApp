@@ -66,10 +66,10 @@ export interface ContentProps {
 export interface CardProps {
   data: Asteroid;
   active_link_distance?: boolean;
-  addAsteroidInBasket?: (asteroid: string) => void;
-  basket?: Asteroid[] | Storage | string[];
+  addAsteroidInBasket?: (asteroidId: string, asteroid: Asteroid) => void;
+  basketId?: Asteroid[] | Storage | string[];
   btnActive: boolean;
 }
 export interface RightbarProps {
-  basket: Asteroid[] | Storage | string[];
+  basketId: Asteroid[] | Storage | string[];
 }

@@ -109,8 +109,12 @@ const getData = async () => {
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${dateFormat}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
   );
   const responceData = await data.json();
-  return responceData.near_earth_objects[dateFormat].map(
-    (item: ResponceData) => {
+  let asteroids = [];
+  for (let item in responceData.near_earth_objects) {
+    asteroids.push(...responceData.near_earth_objects[item]);
+  }
+  return asteroids
+    .map((item: ResponceData) => {
       return {
         id: item.id,
         name: item.name,
@@ -122,8 +126,8 @@ const getData = async () => {
         },
         active: false,
       };
-    }
-  );
+    })
+    .reverse();
 };
 const Main = async () => {
   let data = await getData();

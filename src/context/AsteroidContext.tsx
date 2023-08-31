@@ -7,43 +7,75 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-
+import { Asteroid } from "../types";
 interface ContextProps {
-  basket: string[];
-  addAsteroidInBasket: (asteroid: string) => void;
+  basketId: string[];
+  asteroidsInBasket: Asteroid[];
+  addAsteroidInBasket: (asteroidId: string, asteroid: any) => void;
   toggleBar: boolean;
   setToggleBar: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AsteroidsContext = createContext<ContextProps>({
-  basket: [],
-  addAsteroidInBasket(asteroid) {},
+  basketId: [],
+  asteroidsInBasket: [],
+  addAsteroidInBasket(asteroidId) {},
   toggleBar: true,
   setToggleBar() {},
 });
 export const useAsteroidContext = () => useContext(AsteroidsContext);
 
 export const AsteroidProvider = ({ children }: { children: ReactNode }) => {
-  const [basket, setBasket] = useState<string[]>(
-    localStorage.getItem("asteroid")
-      ? JSON.parse(localStorage.getItem("asteroid")!)
+  const [basketId, setBasket] = useState<string[]>(
+    localStorage.getItem("asteroidId")
+      ? JSON.parse(localStorage.getItem("asteroidId")!)
+      : []
+  );
+  const [asteroidsInBasket, setAsteroidsInBasket] = useState<Asteroid[]>(
+    localStorage.getItem("asteroidsInBasket")
+      ? JSON.parse(localStorage.getItem("asteroidsInBasket")!)
       : []
   );
   const [toggleBar, setToggleBar] = useState(true);
-  const addAsteroidInBasket = (asteroid: string): void => {
-    if (basket.includes(asteroid)) {
-      let remove = basket.filter((item) => item !== asteroid);
-      setBasket(remove);
-      localStorage.setItem("asteroid", JSON.stringify(remove));
+  const addAsteroidInBasket = (
+    asteroidId: string,
+    asteroid: Asteroid
+  ): void => {
+    if (basketId.includes(asteroidId)) {
+      let removeId = basketId.filter((item) => item !== asteroidId);
+      setBasket(removeId);
+      localStorage.setItem("asteroidId", JSON.stringify(removeId));
+      let removeAsteroidFromBasket = asteroidsInBasket.filter(
+        (item: any) => item.id !== asteroidId
+      );
+      setAsteroidsInBasket(removeAsteroidFromBasket);
+      localStorage.setItem(
+        "asteroidsInBasket",
+        JSON.stringify(removeAsteroidFromBasket)
+      );
     } else {
-      setBasket((prev) => [...prev, asteroid]);
-      localStorage.setItem("asteroid", JSON.stringify([...basket, asteroid]));
+      setBasket((prev) => [...prev, asteroidId]);
+      localStorage.setItem(
+        "asteroidId",
+        JSON.stringify([...basketId, asteroidId])
+      );
+      setAsteroidsInBasket((prev) => [...prev, asteroid]);
+      localStorage.setItem(
+        "asteroidsInBasket",
+        JSON.stringify([...asteroidsInBasket, asteroid])
+      );
     }
   };
 
   return (
     <AsteroidsContext.Provider
-      value={{ basket, addAsteroidInBasket, toggleBar, setToggleBar }}
+      value={{
+        asteroidsInBasket,
+        basketId,
+        addAsteroidInBasket,
+        toggleBar,
+        setToggleBar,
+      }}
     >
       {children}
     </AsteroidsContext.Provider>
