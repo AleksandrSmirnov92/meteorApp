@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```
 # Application images
 ## Main Page
-![MainAsteroid](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/5c9c3ed8-fe05-4425-89f8-28399e582dcb)
+![MainAsteroid (2)](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/e79b6324-31fe-4171-8f94-f347110f0a0d)
 ## Scroll Page
 ![scrollAsteroid](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/21c57e13-31b5-4632-b2c2-cdf78f6198eb)
 ## Basket Page
