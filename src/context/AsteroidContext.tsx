@@ -6,12 +6,13 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
 import { Asteroid } from "../types";
 interface ContextProps {
   basketId: string[];
   asteroidsInBasket: Asteroid[];
-  addAsteroidInBasket: (asteroidId: string, asteroid: any) => void;
+  addAsteroidInBasket: (asteroidId: string, asteroid: Asteroid) => void;
   toggleBar: boolean;
   setToggleBar: Dispatch<SetStateAction<boolean>>;
 }
@@ -27,16 +28,21 @@ export const useAsteroidContext = () => useContext(AsteroidsContext);
 
 export const AsteroidProvider = ({ children }: { children: ReactNode }) => {
   const [basketId, setBasket] = useState<string[]>(
-    localStorage.getItem("asteroidId")
-      ? JSON.parse(localStorage.getItem("asteroidId")!)
+    typeof window !== "undefined"
+      ? localStorage.getItem("asteroidId")
+        ? JSON.parse(localStorage.getItem("asteroidId")!)
+        : []
       : []
   );
   const [asteroidsInBasket, setAsteroidsInBasket] = useState<Asteroid[]>(
-    localStorage.getItem("asteroidsInBasket")
-      ? JSON.parse(localStorage.getItem("asteroidsInBasket")!)
+    typeof window !== "undefined"
+      ? localStorage.getItem("asteroidsInBasket")
+        ? JSON.parse(localStorage.getItem("asteroidsInBasket")!)
+        : []
       : []
   );
   const [toggleBar, setToggleBar] = useState(true);
+
   const addAsteroidInBasket = (
     asteroidId: string,
     asteroid: Asteroid

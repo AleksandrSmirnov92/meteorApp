@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
-
 export interface ResponceData {
   absolute_magnitude_h: number;
   close_approach_data: [

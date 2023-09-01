@@ -1,3 +1,4 @@
+import { Asteroid } from "@/types";
 export const calculationOfLunar = (lunar: string): string => {
   let l = Math.round(Number(lunar));
   if (l % 10 === 1) {
@@ -17,6 +18,6 @@ export const ruDate = (date: string): string => {
   });
   return ruDate.format(currentDate);
 };
-export const addInBasketAsteroid = (asteroid: any, basket: any) => {
+export const addInBasketAsteroid = (asteroid: Asteroid, basket: Asteroid[]) => {
   basket.push(asteroid);
 };

@@ -7,12 +7,50 @@ interface Params {
     id: string;
   };
 }
-let getAsteroid = async (asteroidId: string) => {
-  // fetch asteroidId
-  return {};
+type GetAsteroid = (asteroid: string) => Promise<{
+  name: string;
+  name_limited: string;
+  orbital_data: string;
+  designation: string;
+  absolute_magnitude_h: string;
+  kilometers: number;
+  meters: number;
+  is_potentially_hazardous_asteroid: false;
+  close_approach_data: string[];
+}>;
+let getAsteroid: GetAsteroid = async (asteroidId) => {
+  let data = await fetch(
+    `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
+  );
+  let responce = await data.json();
+
+  return {
+    name: responce.name,
+    name_limited: responce.name_limited,
+    orbital_data: responce.orbital_data.first_observation_date,
+    designation: responce.designation,
+    absolute_magnitude_h: responce.absolute_magnitude_h,
+    kilometers: responce.estimated_diameter.kilometers.estimated_diameter_max,
+    meters: responce.estimated_diameter.meters.estimated_diameter_max,
+    is_potentially_hazardous_asteroid:
+      responce.is_potentially_hazardous_asteroid,
+    close_approach_data: responce.close_approach_data.map(
+      (item: any) => item.close_approach_date
+    ),
+  };
 };
 export default async function Asteroid({ params }: Params) {
-  let asteroid = await getAsteroid(params.id);
+  let {
+    name,
+    name_limited,
+    orbital_data,
+    designation,
+    absolute_magnitude_h,
+    kilometers,
+    meters,
+    is_potentially_hazardous_asteroid,
+    close_approach_data,
+  } = await getAsteroid(params.id);
 
   return (
     <div className={style.asteroid__wrapper}>
@@ -22,18 +60,16 @@ export default async function Asteroid({ params }: Params) {
             <ul className={style["content-name__list"]}>
               <h2 className={style["list-title"]}>Описание Астероида</h2>
               <li>
-                <span>Имя-name_limited</span>
+                <span>Индитификатор - {params.id}</span>
               </li>
               <li>
-                <span>Полное название-name</span>
+                <span>Полное название - {name}</span>
               </li>
               <li>
-                <span>
-                  Первый раз обнаружен-orbital_data.first_observation_date
-                </span>
+                <span>Первый раз обнаружен - {orbital_data}</span>
               </li>
               <li>
-                <span>Обозначение-designation</span>
+                <span>Обозначение - {designation}</span>
               </li>
             </ul>
           </div>
@@ -45,26 +81,30 @@ export default async function Asteroid({ params }: Params) {
             <ul className={style["content-characteristics__list"]}>
               <h2 className={style["list-title"]}>Основные Характеристики</h2>
               <li>
-                <span>Абсолютная величина- absolute_magnitude_h</span>
+                <span>Абсолютная величина- {absolute_magnitude_h}</span>
               </li>
               <li>
                 Предпологаемый диаметр:
                 <ul>
                   <li>
-                    <span>В километрах-estimated_diameter.kilometers</span>
+                    <span>В километрах - {kilometers}</span>
                   </li>
                   <li>
-                    <span>В метрах-estimated_diameter.meters</span>
+                    <span>В метрах - {meters}</span>
                   </li>
                 </ul>
               </li>
               <li>
                 <span>
-                  Потенциально_опасный_астероид-is_potentially_hazardous_asteroid
+                  Потенциально_опасный_астероид -{" "}
+                  {is_potentially_hazardous_asteroid ? "Да" : "Нет"}
                 </span>
               </li>
               <li>
-                <span>Ближайшие сближения с землей - close_approach_data</span>
+                <>
+                  <span>Все сближения с землей - </span>
+                  {close_approach_data.join(", ")}
+                </>
               </li>
             </ul>
           </div>
