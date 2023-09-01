@@ -31,6 +31,11 @@ const getData = async () => {
           active: false,
         };
       })
+      .sort((a: { approach_date: string }, b: { approach_date: string }) => {
+        const A = Number(new Date(b.approach_date));
+        const B = Number(new Date(a.approach_date));
+        return A - B;
+      })
       .reverse();
   } catch (error) {
     throw error;
