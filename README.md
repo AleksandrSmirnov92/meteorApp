@@ -8,7 +8,7 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 # Application images
 ## Main Page
-![asteroidPage](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/a7896a2c-e522-4f18-9eca-b69d1ebb7b17)
+![MainAsteroid](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/5c9c3ed8-fe05-4425-89f8-28399e582dcb)
 ## Scroll Page
 ![scrollAsteroid](https://github.com/AleksandrSmirnov92/meteorApp/assets/83553039/21c57e13-31b5-4632-b2c2-cdf78f6198eb)
 ## Basket Page
