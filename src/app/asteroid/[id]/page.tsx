@@ -9,7 +9,6 @@ interface Params {
 }
 type GetAsteroid = (asteroid: string) => Promise<{
   name: string;
-  name_limited: string;
   orbital_data: string;
   designation: string;
   absolute_magnitude_h: string;
@@ -23,7 +22,6 @@ let getAsteroid: GetAsteroid = async (asteroidId) => {
     `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
   );
   let responce = await data.json();
-
   return {
     name: responce.name,
     name_limited: responce.name_limited,
@@ -42,7 +40,6 @@ let getAsteroid: GetAsteroid = async (asteroidId) => {
 export default async function Asteroid({ params }: Params) {
   let {
     name,
-    name_limited,
     orbital_data,
     designation,
     absolute_magnitude_h,
