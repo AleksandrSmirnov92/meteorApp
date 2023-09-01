@@ -4,7 +4,6 @@
   justify-content: center;
 }
 .content {
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -21,12 +20,14 @@
 }
 .toggleBar {
   display: flex;
+
   margin-top: 1em;
 }
 .toggleBar > * {
   align-self: center;
 }
 .toggleBar-btn > span {
+  padding: 0.2em;
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: Helvetica;
@@ -34,6 +35,7 @@
 .toggleBar-btn > span:hover {
   opacity: 0.8;
 }
+
 .toggleBar-btn > span:focus {
   opacity: 1;
   color: white;
@@ -56,13 +58,25 @@
     width: 100%;
   }
   .content {
+    overflow: hidden;
     width: 100%;
     margin-left: 3em;
   }
   .toggleBar-btn > span {
     font-size: 2vh;
   }
+  .toggleBar-btn > span:hover {
+    opacity: 1;
+  }
   .card-container {
     margin-bottom: 5em;
+  }
+}
+@media (max-width: 281px) {
+  .content {
+    overflow: hidden;
+    width: 100%;
+    margin-left: 1em;
+    padding: 0;
   }
 }

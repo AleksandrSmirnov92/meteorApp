@@ -16,7 +16,7 @@ export const Card: React.FC<CardProps> = ({
     <div className={style["card"]}>
       <h2>{ruDate(approach_date)}</h2>
       <div className={style["card__description"]}>
-        <div>
+        <div className={style["card-distance"]}>
           {active_link_distance ? (
             <span>{Math.round(Number(distance.killometers))} км</span>
           ) : (
