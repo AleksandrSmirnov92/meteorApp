@@ -34,7 +34,12 @@
 .toggleBar-btn > span:hover {
   opacity: 0.8;
 }
+.toggleBar-btn > span:focus {
+  opacity: 1;
+  color: white;
+}
 .toggleBar-btn_active {
+  color: white;
   font-weight: bold;
 }
 .toggleBar-btn_inactive {
@@ -52,7 +57,7 @@
   }
   .content {
     width: 100%;
-    margin-left: 2.5em;
+    margin-left: 3em;
   }
   .toggleBar-btn > span {
     font-size: 2vh;

@@ -5,7 +5,8 @@
 }
 .header__container {
   display: flex;
-  padding-left: 1rem;
+  padding-left: 1em;
+  padding-top: 0.5em;
   flex-direction: column;
   padding-bottom: 1rem;
 }

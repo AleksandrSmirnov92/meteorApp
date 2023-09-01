@@ -14,7 +14,7 @@
 @media (max-width: 640px) {
   .main__container {
     background-size: 49vh;
-    background-position: -16rem;
+    background-position: -18rem;
     background-attachment: fixed;
   }
 }

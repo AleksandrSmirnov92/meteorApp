@@ -41,7 +41,7 @@ export const Content: React.FC<ContentProps> = ({ data }) => {
               ]
             }`}
           >
-            <span>В лунных арбитах</span>
+            <span>В лунных орбитах</span>
           </button>
         </pre>
         <div className={style["card-container"]}>
