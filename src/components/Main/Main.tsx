@@ -2,15 +2,11 @@ import style from "./main.module.css";
 import { Content } from "../Content/Content";
 import Header from "../Header/Header";
 import { ResponceData } from "../../types/index";
-
-const getData = async () => {
-  let date = new Date();
-  let dateFormat: string = `${date.getFullYear()}-${String(
-    date.getMonth() + 1
-  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+import { currentDate } from "@/utils";
+const getData = async (currentDate: () => string) => {
   try {
     const data = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${dateFormat}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate()}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
     );
     const responceData = await data.json();
     let asteroids = [];
@@ -42,7 +38,7 @@ const getData = async () => {
   }
 };
 const Main = async () => {
-  let data = await getData();
+  let data = await getData(currentDate);
 
   return (
     <div className={style.main__container}>

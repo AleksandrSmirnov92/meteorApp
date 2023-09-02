@@ -4,7 +4,6 @@ import style from "./page.module.css";
 import { useAsteroidContext } from "../../context/AsteroidContext";
 const Basket = () => {
   const data = useAsteroidContext();
-  console.log(data);
   return (
     <div className={style["basket-container"]}>
       <MainBasketComp />

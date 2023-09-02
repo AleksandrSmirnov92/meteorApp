@@ -21,3 +21,10 @@ export const ruDate = (date: string): string => {
 export const addInBasketAsteroid = (asteroid: Asteroid, basket: Asteroid[]) => {
   basket.push(asteroid);
 };
+export const currentDate = (): string => {
+  let date = new Date();
+  const dateFormat: string = `${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  return dateFormat;
+};
