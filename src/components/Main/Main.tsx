@@ -6,7 +6,10 @@ import { currentDate } from "@/utils";
 const getData = async (currentDate: () => string) => {
   try {
     const data = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate()}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate()}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`,
+      {
+        next: { revalidate: 3600 },
+      }
     );
     const responceData = await data.json();
     let asteroids = [];
