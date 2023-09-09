@@ -3,12 +3,14 @@ import { Content } from "../Content/Content";
 import Header from "../Header/Header";
 import { ResponceData } from "../../types/index";
 import { currentDate } from "@/utils";
-const getData = async (currentDate: () => string) => {
+const getData = async (currentDate: (date: Date) => string) => {
   try {
     const data = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate()}&api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate(
+        new Date()
+      )}&api_key=1IUa1dqtYEvrIxBzbdpZg2penZxgWm3ERmYcsV8s`,
       {
-        next: { revalidate: 3600 },
+        cache: "no-cache",
       }
     );
     const responceData = await data.json();

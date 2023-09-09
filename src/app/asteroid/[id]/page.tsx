@@ -19,7 +19,7 @@ type GetAsteroid = (asteroid: string) => Promise<{
 }>;
 let getAsteroid: GetAsteroid = async (asteroidId) => {
   let data = await fetch(
-    `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=0kWkJf3IFmFhfq4wMUx2freKtjgajCDSgarc9zIo`
+    `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=1IUa1dqtYEvrIxBzbdpZg2penZxgWm3ERmYcsV8s`
   );
   let responce = await data.json();
   return {
