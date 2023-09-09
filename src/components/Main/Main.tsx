@@ -3,6 +3,7 @@ import { Content } from "../Content/Content";
 import Header from "../Header/Header";
 import { ResponceData } from "../../types/index";
 import { currentDate } from "@/utils";
+import { error } from "console";
 const getData = async (currentDate: (date: Date) => string) => {
   try {
     const data = await fetch(
@@ -13,6 +14,9 @@ const getData = async (currentDate: (date: Date) => string) => {
         cache: "no-cache",
       }
     );
+    if (data.headers.get("content-type") !== "application/json") {
+      throw Error;
+    }
     const responceData = await data.json();
     let asteroids = [];
     for (let item in responceData.near_earth_objects) {

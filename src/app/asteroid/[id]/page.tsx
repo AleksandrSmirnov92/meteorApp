@@ -17,25 +17,33 @@ type GetAsteroid = (asteroid: string) => Promise<{
   is_potentially_hazardous_asteroid: false;
   close_approach_data: string[];
 }>;
+
 let getAsteroid: GetAsteroid = async (asteroidId) => {
-  let data = await fetch(
-    `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=1IUa1dqtYEvrIxBzbdpZg2penZxgWm3ERmYcsV8s`
-  );
-  let responce = await data.json();
-  return {
-    name: responce.name,
-    name_limited: responce.name_limited,
-    orbital_data: responce.orbital_data.first_observation_date,
-    designation: responce.designation,
-    absolute_magnitude_h: responce.absolute_magnitude_h,
-    kilometers: responce.estimated_diameter.kilometers.estimated_diameter_max,
-    meters: responce.estimated_diameter.meters.estimated_diameter_max,
-    is_potentially_hazardous_asteroid:
-      responce.is_potentially_hazardous_asteroid,
-    close_approach_data: responce.close_approach_data.map(
-      (item: any) => item.close_approach_date
-    ),
-  };
+  try {
+    let data = await fetch(
+      `https://api.nasa.gov/neo/rest/v1/neo/${asteroidId}?api_key=1IUa1dqtYEvrIxBzbdpZg2penZxgWm3ERmYcsV8s`
+    );
+    if (data.headers.get("content-type") !== "application/json") {
+      throw Error;
+    }
+    let responce = await data.json();
+    return {
+      name: responce.name,
+      name_limited: responce.name_limited,
+      orbital_data: responce.orbital_data.first_observation_date,
+      designation: responce.designation,
+      absolute_magnitude_h: responce.absolute_magnitude_h,
+      kilometers: responce.estimated_diameter.kilometers.estimated_diameter_max,
+      meters: responce.estimated_diameter.meters.estimated_diameter_max,
+      is_potentially_hazardous_asteroid:
+        responce.is_potentially_hazardous_asteroid,
+      close_approach_data: responce.close_approach_data.map(
+        (item: any) => item.close_approach_date
+      ),
+    };
+  } catch (error) {
+    throw error;
+  }
 };
 export default async function Asteroid({ params }: Params) {
   let {
